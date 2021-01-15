@@ -1,11 +1,17 @@
 import json
 import itertools
 import pprint
+import urllib
 
 def to_milliseconds(string):
     hr,min,secms = string.split(":")
     sec,milli = secms.split(".")
     return int(hr)*3600*1000+int(min)*60*1000+int(sec)*1000+int(milli)
+
+def load_json_from_api(url):
+    response = urllib.urlopen(url)
+    data = json.loads(response.read())
+    return data
 
 def extract_result_table(json, up_until=None):
     results = {}
