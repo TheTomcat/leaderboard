@@ -127,10 +127,6 @@ def test(json_data, milliseconds_step=60000):
 
 
 if __name__ == "__main__":
-    # with open('output.json','r') as f:
-    #     jsonstr = f.read()
-    # data = json.loads(jsonstr)
-    # print(get_leaderboard(jsonstr))
-    # print(list(data.keys()))
     data = load_json_from_api("https://api.chronotrack.com/api/race/127700/results?format=json&client_id=727dae7f&user_id=nwiegand%40chronotrack.com&user_pass=676a10864eb8cc0e1cab1abc71b6b5bc775d0a8a&page=1&size=50&interval=all&mode=ctlive#race_results/0")
-    print(json.dumps(render_leaderboard_as_json(data)))
+    # pprint.pprint(json.dumps(render_leaderboard_as_json(data)))
+    pprint.pprint(render_leaderboard_as_json(data))
