@@ -2,11 +2,6 @@ import json
 import itertools
 import pprint
 
-with open('output.json','r') as f:
-    jsonstr = f.read()
-
-data = json.loads(jsonstr)
-
 def to_milliseconds(string):
     hr,min,secms = string.split(":")
     sec,milli = secms.split(".")
@@ -79,5 +74,11 @@ def test(json_data, milliseconds_step=60000):
     
     for time in range(0,runfor,milliseconds_step):
         print(time, create_leader_board(extract_result_table(json_data, time)))
+
+
+with open('output.json','r') as f:
+    jsonstr = f.read()
+
+data = json.loads(jsonstr)
 
 print(get_leaderboard(jsonstr))
