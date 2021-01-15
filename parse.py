@@ -50,6 +50,12 @@ def create_leader_board(results_table):
 
     return leaderboard
 
+def get_leaderboard(json_string):
+    data = json.loads(json_string)
+    results_table = extract_result_table(data)
+    leaderboard = create_leader_board(results_table)
+    return leaderboard
+
 def parse_for_ids(json):
     ids = {}
     for item in json['race_results']:
@@ -73,5 +79,5 @@ def test(json_data, milliseconds_step=60000):
     
     for time in range(0,runfor,milliseconds_step):
         print(time, create_leader_board(extract_result_table(json_data, time)))
-    
-test(data)
+
+print(get_leaderboard(jsonstr))
